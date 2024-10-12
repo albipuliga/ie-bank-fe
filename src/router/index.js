@@ -1,27 +1,33 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Skull from '../components/Skull.vue'
-import AppAccounts from '../components/AppAccounts.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import AppAccounts from "../components/AppAccounts.vue";
+import Home from "../components/Home.vue";
+import Skull from "../components/Skull.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/skull',
-    name: 'Skull',
-    component: Skull
+    path: "/",
+    name: "Home",
+    component: Home,
   },
   {
-    path: '/accounts',
-    name: 'AppAccounts',
-    component: AppAccounts
-  }
-]
+    path: "/accounts",
+    name: "Accounts",
+    component: AppAccounts,
+  },
+  {
+    path: "/skull",
+    name: "Skull",
+    component: Skull,
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
