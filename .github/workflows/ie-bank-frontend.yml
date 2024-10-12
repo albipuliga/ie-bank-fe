@@ -17,26 +17,23 @@ env:
   FRONTEND_WEBAPP_UAT: apuliga-fe-uat
 
 jobs:
-  build:
+  build-dev:
     runs-on: ubuntu-latest
-    environment: development
+    environment: Development
     steps:
       - uses: actions/checkout@v3
-
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
           node-version: "18.x"
           cache: "npm"
           cache-dependency-path: package-lock.json
-
-      - name: Debug - Print Variables
+      - name: Debug - Print Variables (Dev)
         run: |
           echo "NODE_ENV: ${{ vars.NODE_ENV }}"
           echo "VUE_APP_ROOT_URL: ${{ vars.VUE_APP_ROOT_URL }}"
           echo "BASE_URL: ${{ vars.BASE_URL }}"
-
-      - name: npm install, build, and test
+      - name: npm install, build, and test (Dev)
         env:
           NODE_ENV: ${{ vars.NODE_ENV }}
           VUE_APP_ROOT_URL: ${{ vars.VUE_APP_ROOT_URL }}
@@ -44,11 +41,40 @@ jobs:
         run: |
           npm ci
           npm run build -- --mode ${{ vars.NODE_ENV }}
-
-      - name: Upload artifact for deployment job
+      - name: Upload artifact for deployment job (Dev)
         uses: actions/upload-artifact@v4
         with:
-          name: node-app
+          name: node-app-dev
+          path: dist/
+
+  build-uat:
+    runs-on: ubuntu-latest
+    environment: UAT
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js version
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+          cache: "npm"
+          cache-dependency-path: package-lock.json
+      - name: Debug - Print Variables (UAT)
+        run: |
+          echo "NODE_ENV: ${{ vars.NODE_ENV }}"
+          echo "VUE_APP_ROOT_URL: ${{ vars.VUE_APP_ROOT_URL }}"
+          echo "BASE_URL: ${{ vars.BASE_URL }}"
+      - name: npm install, build, and test (UAT)
+        env:
+          NODE_ENV: ${{ vars.NODE_ENV }}
+          VUE_APP_ROOT_URL: ${{ vars.VUE_APP_ROOT_URL }}
+          BASE_URL: ${{ vars.BASE_URL }}
+        run: |
+          npm ci
+          npm run build -- --mode ${{ vars.NODE_ENV }}
+      - name: Upload artifact for deployment job (UAT)
+        uses: actions/upload-artifact@v4
+        with:
+          name: node-app-uat
           path: dist/
 
   deploy-dev:
