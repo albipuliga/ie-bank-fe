@@ -33,13 +33,13 @@ jobs:
       - name: Debug - Print Variables
         run: |
           echo "NODE_ENV: ${{ vars.NODE_ENV }}"
-          echo "VUE_APP_ROOT_API: ${{ vars.VUE_APP_ROOT_API }}"
+          echo "VUE_APP_ROOT_URL: ${{ vars.VUE_APP_ROOT_URL }}"
           echo "BASE_URL: ${{ vars.BASE_URL }}"
 
       - name: npm install, build, and test
         env:
           NODE_ENV: ${{ vars.NODE_ENV }}
-          VUE_APP_ROOT_API: ${{ vars.VUE_APP_ROOT_API }}
+          VUE_APP_ROOT_URL: ${{ vars.VUE_APP_ROOT_URL }}
           BASE_URL: ${{ vars.BASE_URL }}
         run: |
           npm ci
