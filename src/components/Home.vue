@@ -1,3 +1,5 @@
+<!-- Home.vue -->
+
 <template>
     <div class="home">
         <h1 class="title">Welcome to IE Bank</h1>
