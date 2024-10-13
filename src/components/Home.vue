@@ -11,6 +11,7 @@ export default {
 };
 </script>
 
+<!-- Styling -->
 <style scoped>
 .home {
     display: flex;
