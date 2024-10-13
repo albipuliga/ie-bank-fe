@@ -11,8 +11,8 @@ export default {
 };
 </script>
 
+<!-- Styling -->
 <style scoped>
-/* Background with a solid color */
 .home {
     display: flex;
     flex-direction: column;
@@ -24,7 +24,6 @@ export default {
     animation: fadeIn 2s ease-in-out;
 }
 
-/* Large, bold title with a dramatic color */
 .title {
     font-size: 4rem;
     font-weight: bold;
@@ -34,7 +33,6 @@ export default {
     animation: slideIn 1.5s ease-in-out;
 }
 
-/* Eye-catching subtitle with a modern font */
 .subtitle {
     font-size: 1.8rem;
     color: #f2f2f2;
@@ -44,7 +42,6 @@ export default {
     animation: slideIn 2s ease-in-out;
 }
 
-/* Bold, modern button with neon effect */
 .btn-primary {
     background: none;
     border: 2px solid #0000ff;
@@ -60,7 +57,6 @@ export default {
     overflow: hidden;
 }
 
-/* Neon glow and hover effects */
 .btn-primary::before {
     content: "";
     position: absolute;
