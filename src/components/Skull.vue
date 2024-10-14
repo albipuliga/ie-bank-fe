@@ -20,7 +20,7 @@ export default
         name: 'Skull',
         data() {
             return {
-                msg: 'Hi! This is the skull component 💀',
+                msg: 'Hi! This is the skull component',
                 environment: process.env.NODE_ENV,
                 env_var_file_name: process.env.VUE_APP_ENV_VAR_FILE_NAME,
                 backend_url: process.env.VUE_APP_ROOT_URL
