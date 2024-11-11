@@ -10,11 +10,7 @@
             {{ message }}
           </b-alert>
 
-          <button
-            type="button"
-            class="btn btn-success btn-sm"
-            v-b-modal.account-modal
-          >
+          <button type="button" class="btn btn-success btn-sm" v-b-modal.account-modal>
             Create Account
           </button>
           <br /><br />
@@ -38,10 +34,7 @@
                 <td>{{ account.currency }}</td>
                 <td>{{ account.country }}</td>
                 <td>
-                  <span
-                    v-if="account.status == 'Active'"
-                    class="badge badge-success"
-                  >
+                  <span v-if="account.status == 'Active'" class="badge badge-success">
                     {{ account.status }}
                   </span>
                   <span v-else class="badge badge-danger">
@@ -50,19 +43,11 @@
                 </td>
                 <td>
                   <div class="btn-group" role="group">
-                    <button
-                      type="button"
-                      class="btn btn-info btn-sm"
-                      v-b-modal.edit-account-modal
-                      @click="editAccount(account)"
-                    >
+                    <button type="button" class="btn btn-info btn-sm" v-b-modal.edit-account-modal
+                      @click="editAccount(account)">
                       Edit
                     </button>
-                    <button
-                      type="button"
-                      class="btn btn-danger btn-sm"
-                      @click="deleteAccount(account)"
-                    >
+                    <button type="button" class="btn btn-danger btn-sm" @click="deleteAccount(account)">
                       Delete
                     </button>
                   </div>
@@ -75,89 +60,32 @@
           </footer>
         </div>
       </div>
-      <b-modal
-        ref="addAccountModal"
-        id="account-modal"
-        title="Create a new account"
-        hide-backdrop
-        hide-footer
-      >
+      <b-modal ref="addAccountModal" id="account-modal" title="Create a new account" hide-backdrop hide-footer>
         <b-form @submit="onSubmit" class="w-100">
-          <b-form-group
-            id="form-name-group"
-            label="Account Name:"
-            label-for="form-name-input"
-          >
-            <b-form-input
-              id="form-name-input"
-              type="text"
-              v-model="createAccountForm.name"
-              placeholder="Account Name"
-              required
-            ></b-form-input>
+          <b-form-group id="form-name-group" label="Account Name:" label-for="form-name-input">
+            <b-form-input id="form-name-input" type="text" v-model="createAccountForm.name" placeholder="Account Name"
+              required></b-form-input>
           </b-form-group>
-          <b-form-group
-            id="form-currency-group"
-            label="Currency:"
-            label-for="form-currency-input"
-          >
-            <b-form-input
-              id="form-currency-input"
-              type="text"
-              v-model="createAccountForm.currency"
-              placeholder="$ or €"
-              required
-            ></b-form-input>
+          <b-form-group id="form-currency-group" label="Currency:" label-for="form-currency-input">
+            <b-form-input id="form-currency-input" type="text" v-model="createAccountForm.currency" placeholder="$ or €"
+              required></b-form-input>
           </b-form-group>
-          <b-form-group
-            id="form-country-group"
-            label="Country:"
-            label-for="form-country-input"
-          >
-            <b-form-input
-              id="form-country-input"
-              type="text"
-              v-model="createAccountForm.country"
-              placeholder="Country"
-              required
-            ></b-form-input>
+          <b-form-group id="form-country-group" label="Country:" label-for="form-country-input">
+            <b-form-input id="form-country-input" type="text" v-model="createAccountForm.country" placeholder="Country"
+              required></b-form-input>
           </b-form-group>
           <b-button type="submit" variant="outline-info">Submit</b-button>
         </b-form>
       </b-modal>
-      <b-modal
-        ref="editAccountModal"
-        id="edit-account-modal"
-        title="Edit the account"
-        hide-backdrop
-        hide-footer
-      >
+      <b-modal ref="editAccountModal" id="edit-account-modal" title="Edit the account" hide-backdrop hide-footer>
         <b-form @submit="onSubmitUpdate" class="w-100">
-          <b-form-group
-            id="form-edit-name-group"
-            label="Account Name:"
-            label-for="form-edit-name-input"
-          >
-            <b-form-input
-              id="form-edit-name-input"
-              type="text"
-              v-model="editAccountForm.name"
-              placeholder="Account Name"
-              required
-            ></b-form-input>
+          <b-form-group id="form-edit-name-group" label="Account Name:" label-for="form-edit-name-input">
+            <b-form-input id="form-edit-name-input" type="text" v-model="editAccountForm.name"
+              placeholder="Account Name" required></b-form-input>
           </b-form-group>
-          <b-form-group
-            id="form-edit-country-group"
-            label="Country:"
-            label-for="form-edit-country-input"
-          >
-            <b-form-input
-              id="form-edit-country-input"
-              type="text"
-              v-model="editAccountForm.country"
-              placeholder="Country"
-              required
-            ></b-form-input>
+          <b-form-group id="form-edit-country-group" label="Country:" label-for="form-edit-country-input">
+            <b-form-input id="form-edit-country-input" type="text" v-model="editAccountForm.country"
+              placeholder="Country" required></b-form-input>
           </b-form-group>
           <b-button type="submit" variant="outline-info">Update</b-button>
         </b-form>
